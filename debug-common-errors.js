@@ -28,6 +28,10 @@ console.log("Welcome to the bootcamp
 
 // What’s Wrong?
 
+// Error Type: Syntax Error
+// The string is missing a closing quotation mark and the statement is missing a closing parenthesis.
+
+console.log("Welcome to the bootcamp"); // Fixed
 
 // Program B
 // Description:
@@ -41,7 +45,18 @@ for (let i = 0; i < numbers.length; i++) {
 
 // What’s Wrong?
 
+// Error Type: Runtime Error
+// The array contains a string ("eight") that can't be multiplied, causing NaN.
 
+let numbers = [2, 4, "eight"];
+for (let i = 0; i < numbers.length; i++) {
+  if (typeof numbers[i] === "number") { // Add type check
+    let doubled = numbers[i] * 2;
+    console.log(doubled);
+  } else {
+    console.log(`Skipping invalid entry: ${numbers[i]}`); // Optional helpful log
+  }
+}
 
 // Program C (Logic Error)
 // Description:
@@ -60,3 +75,19 @@ function isPrime(num) {
 console.log(isPrime(7)); // Expected true but gets false
 
 // What’s Wrong?
+
+// Error Type: Logic Error
+// Returning true when a number is *not* prime; should return false in that case.
+
+function isPrime(num) {
+  if (num < 2) return false;
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false; // Correct: not a prime → return false
+    }
+  }
+  return true; // Correct: no divisors found → it's prime
+}
+
+console.log(isPrime(7)); // Output: true
+console.log(isPrime(8)); // Output: false
