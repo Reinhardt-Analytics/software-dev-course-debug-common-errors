@@ -25,9 +25,18 @@ Think about which debugging methods you found most useful and how you might appl
 // This program is intended to display a simple prompt in the console but fails to run.
 
 console.log("Welcome to the bootcamp
+      
+//What’s Wrong?
+            
+//What’s Wrong?
+//The string is not closed with a quotation mark and the statement is missing a closing parenthesis and semicolon.
+//Error Type: Syntax Error
 
-// What’s Wrong?
+//Fix:
+console.log("Welcome to the bootcamp");
 
+//Verification:
+//Now the code prints the message without throwing a syntax error. 
 
 // Program B
 // Description:
@@ -41,6 +50,18 @@ for (let i = 0; i < numbers.length; i++) {
 
 // What’s Wrong?
 
+// The value "eight" is a string, so multiplying it by 2 results in NaN (Not a Number), causing a runtime issue.
+// Error Type: Runtime Error
+
+// Fix:
+let numbersFixed = [2, 4, 8];
+for (let i = 0; i < numbersFixed.length; i++) {
+  let doubled = numbersFixed[i] * 2;
+  console.log(doubled);
+}
+
+// Verification:
+// Now the code multiplies each number by 2 and displays: 4, 8, 16.
 
 
 // Program C (Logic Error)
@@ -60,3 +81,22 @@ function isPrime(num) {
 console.log(isPrime(7)); // Expected true but gets false
 
 // What’s Wrong?
+
+// The logic is flipped: returning true means the number is NOT prime, but it should return false in that case.
+// Error Type: Logic Error
+
+// Fix:
+function isPrimeFixed(num) {
+  if (num < 2) return false;
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false; // Corrected to show num is NOT prime
+    }
+  }
+  return true; // Now correctly shows num IS prime
+}
+
+console.log(isPrimeFixed(7)); // Expected true
+
+// Verification:
+// The fixed function now correctly identifies 7 as a prime number and returns true.
